@@ -1,5 +1,7 @@
 CREATE DATABASE University;
 
+USE University;
+
 CREATE TABLE Teaches(
 	ID varchar(255) ,
     course_id varchar(255),
@@ -69,9 +71,9 @@ VALUE ('Comp.Sci.','Taylor','100000'),
       ('Comp.Sci.','Taylor','100000'),
       ('Comp.Sci.','Taylor','100000');
       
--- DROP TABLE Instructor;      
+-- DROP TABLE Department;      
      
-SELECT * FROM Instructor;      
+SELECT * FROM Department;      
       
 CREATE TABLE Section(
 	course_id varchar(255),
@@ -99,9 +101,9 @@ VALUE('BIO-101','1','Summer','2009','Painter','514','B'),
      ('MU-199','1','Spring','2010','Packard','101','D'),
      ('PHY-101','1','Fall','2009','Watson','100','A');
      
--- DROP TABLE Instructor;      
+-- DROP TABLE Section;      
      
-SELECT * FROM Instructor;     
+SELECT * FROM Section;     
      
 CREATE TABLE Course(
 	course_id varchar(255),
@@ -125,9 +127,9 @@ VALUE('BIO-101','Intro. to Biology','Biology','4'),
      ('MU-199','Music Video Production','Music','3'),
      ('PHY-101','Physical Principles','Physics','4');
      
--- DROP TABLE Instructor;      
+-- DROP TABLE Course;      
      
-SELECT * FROM Instructor;
+SELECT * FROM Course;
 
 CREATE TABLE Student(
 	ID integer,
@@ -151,6 +153,6 @@ VALUE('00128','Zhang','Comp. Sci.','102'),
     ('98765','Bourikas','Elec. Eng.','98'),
     ('98988','Tanaka','Biology','120');
 
--- DROP TABLE Instructor;      
+-- DROP TABLE Student;      
      
-SELECT * FROM Instructor;
+SELECT * FROM Student;
