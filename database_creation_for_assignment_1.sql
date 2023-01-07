@@ -11,7 +11,7 @@ CREATE TABLE employee (
 INSERT INTO employee(employee_name, street, city)
 VALUES('James Arthur', 'Street 7', 'Middlesbrough'),
 	  ('James Hillier Blount', 'Tidworth', 'Hampshire'),
-      ('James Corden', 'Street 420' ,'Hillingdon'),
+      ('Jones Corden', 'Street 420' ,'Hillingdon'),
       ('James Alan Hetfield','Downey', 'California'),
 	  ('Sushank Ghimire','Bouddha','Kathmandu'),
       ('Arahanta POkhrel','Buddhanagar','Kathmandu'),
@@ -34,8 +34,8 @@ CREATE TABLE works(
 INSERT INTO works(employee_name, company_name, salary)
 VALUES('James Arthur','Recovery', 39000),
 	  ('James Hillier Blount','Superstar', '46000'),
-      ('James Corden','Central', '2000'),
-      ('James Alan Hetfield','Small Bank Corporation','78000'),
+      ('Jones Corden','Central', '2000'),
+      ('James Alan Hetfield','Small Bank Corporation','8000'),
       ('Sushank Ghimire','First Bank Corporation','12000'),
       ('Arahanta Pokhrel','First Bank Corporation',5000),
       ('Bikrant Bidari','Recovery',60000),
@@ -57,7 +57,7 @@ INSERT INTO company(company_name, city)
 VALUES('Recovery','Hampshire'),
 	  ('Superstar','Yorkshire'),
       ('Central','New York'),
-      ('Small Bank Coropration','California'),
+      ('Small Bank Corporation','California'),
       ('First Bank Corporation','Kathmandu');
       
 -- DROP TABLE company;
@@ -72,7 +72,7 @@ CREATE TABLE manages(
 INSERT INTO manages(employee_name, manager_name)
 VALUES('James Arthur', 'Bikrant Bidari'),
 	  ('James Hillier Blount','Pilot Khadka'),
-      ('James Corden','Rajin Khatri'),
+      ('Jones Corden','Rajin Khatri'),
       ('James Alan Hetfield','Sujan Lamichane'),
       ('Sushank Ghimire','Sudeep Kaucha'),
       ('Arahanta Pokhrel','Sudeep Kaucha');
