@@ -109,5 +109,82 @@ FROM
 	FROM works 
     GROUP BY company_name 
 ) AS counter
-ORDER BY NUMBER_OF_EMPLOYEE;
+ORDER BY NUMBER_OF_EMPLOYEE DESC
+LIMIT 1;
 
+-- 2)k  Find the company that has the smallest payroll.
+
+SELECT company_name, Payroll
+FROM 
+(	SELECT company_name, SUM(salary) AS Payroll
+	FROM works
+	GROUP BY company_name 
+) AS payments
+ORDER BY Payroll
+LIMIT 1;
+
+-- 2)l Find those companies whose employees earn a higher salary, on average, than the
+-- average salary at First Bank Corporation.
+
+SELECT company_name, average_salary
+FROM 
+(	SELECT company_name, AVG(salary) AS average_salary
+	FROM works
+    GROUP BY company_name
+) AS average
+WHERE average.average_salary > 
+(SELECT avgs
+FROM
+(	SELECT company_name, AVG(salary) AS avgs
+	FROM works
+    GROUP BY company_name
+)AS avg_salary
+WHERE  avg_salary.company_name = 'First Bank Corporation');
+
+-- 3)a  Modify the database so that Jones now lives in Newtown
+
+UPDATE employee
+SET city = 'Newtown'
+WHERE employee_name = 'Jones Corden';
+
+SELECT * FROM employee;
+
+-- 3)b  Give all employees of First Bank Corporation a 10 percent raise.
+
+UPDATE works
+SET salary = salary * 1.1 
+WHERE company_name = 'First Bank Corporation';
+
+SELECT * FROM works;
+
+-- 3)c  Give all managers of First Bank Corporation a 10 percent raise
+
+UPDATE works
+SET salary = salary * 1.1
+WHERE employee_name = 
+ANY(	SELECT manager_name 
+		FROM manages
+	)
+AND company_name = 'First Bank Corporation';
+
+SELECT * FROM works;
+
+-- 3)d Give all managers of First Bank Corporation a 10 percent raise unless
+-- the salary becomes greater than $100,000; in such cases, give only a 3 percent raise
+
+UPDATE works
+SET salary = IF(salary < 100000, salary * 1.1, salary * 1.03)
+WHERE employee_name =
+ANY(
+	SELECT manager_name
+    FROM manages
+	)
+AND company_name = 'First Bank Corporation';
+
+SELECT * FROM works;
+
+-- 3)e  Delete all tuples in the works relation for employees of Small Bank Corporation.
+
+SET foreign_key_checks = 0;
+DELETE FROM works
+WHERE company_name = 'Small Bank Corporation';
