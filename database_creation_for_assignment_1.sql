@@ -28,7 +28,9 @@ SELECT * FROM employee;
 CREATE TABLE works( 
 	employee_name varchar(255)PRIMARY KEY,
     company_name varchar(255),
-    salary integer
+    salary integer,
+    FOREIGN KEY (employee_name) REFERENCES employee(employee_name),
+    FOREIGN KEY (company_name) REFERENCES company(company_name)
 );
 
 INSERT INTO works(employee_name, company_name, salary)
@@ -66,7 +68,8 @@ SELECT * FROM company;
 
 CREATE TABLE manages(
 	employee_name varchar(255) PRIMARY KEY,
-    manager_name varchar(255)
+    manager_name varchar(255),
+    FOREIGN KEY (employee_name) REFERENCES employee(employee_name)
 );
 
 INSERT INTO manages(employee_name, manager_name)
