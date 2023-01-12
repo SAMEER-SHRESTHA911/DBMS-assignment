@@ -1,9 +1,9 @@
 -- 1)Create a university database that consists of tables such as the
 --  schema diagram.
 
-CREATE DATABASE univer_sity;
+CREATE DATABASE university;
 
-USE univer_sity;
+USE university;
 
 -- 2)Please complete SQL data definition and tuples of some tables others
 -- 3)Fillthe tuple of each table at least 10 tuples
